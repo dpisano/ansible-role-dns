@@ -102,7 +102,7 @@
     - "zone {{ item.name }}"
     - "output {{ item.ddns }}"
   loop: "{{ dns_zones }}"
-  when: item.update is defined
+  when: item.ddns is defined
 
 - name: Add zones to configuration
   ansible.builtin.template:
