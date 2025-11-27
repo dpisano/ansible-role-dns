@@ -56,7 +56,7 @@
 
 - name: Generate tsig key
   ansible.builtin.command:
-    cmd: tsig-keygen ddnskey >> "{{ dns_confdir }}/tsig.key"
+    cmd: "tsig-keygen ddnskey >> {{ dns_confdir }}/tsig.key"
     creates: "{{ dns_confdir }}/tsig.key"
 
 - name: Set permissions on tsig key file
