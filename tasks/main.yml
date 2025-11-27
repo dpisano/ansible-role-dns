@@ -55,7 +55,7 @@
     mode: "0640"
 
 - name: Generate tsig key
-  ansible.builtin.command:
+  ansible.builtin.shell:
     cmd: "tsig-keygen ddnskey >> {{ dns_confdir }}/tsig.key"
     creates: "{{ dns_confdir }}/tsig.key"
 
