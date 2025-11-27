@@ -67,7 +67,7 @@ zone "{{ zone.name }}" {
 {% if zone.type != "forward" %}
   file "{{ dns_datadir }}/{{ zone.name }}.db";
 {% endif %}
-{% if zone.ddns is defined and zone.ddns sameas true %}
+{% if zone.ddns is defined and zone.ddns is sameas true %}
   allow-update { key ddnskey; };
 {% else %}
 
