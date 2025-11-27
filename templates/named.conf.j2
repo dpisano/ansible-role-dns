@@ -82,6 +82,9 @@ zone "{{ zone.name }}" {
   };
 {% endif %}
 };
+{% if zone.update == true %}
+allow-update { key ddnskey; };
+{% endif %}
 
 {% endfor %}
 
