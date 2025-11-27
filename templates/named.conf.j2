@@ -67,6 +67,9 @@ zone "{{ zone.name }}" {
 {% if zone.type != "forward" %}
   file "{{ dns_datadir }}/{{ zone.name }}.db";
 {% endif %}
+{% if zone.update is sameas true %}
+  allow-update { key ddnskey; };
+{% endif %}
 {% if zone.type == "forward" %}
   forwarders {
 {% for forwarder in zone.forwarders %}
@@ -82,9 +85,6 @@ zone "{{ zone.name }}" {
   };
 {% endif %}
 };
-{% if zone.update is sameas true %}
-  allow-update { key ddnskey; };
-{% endif %}
 
 {% endfor %}
 
