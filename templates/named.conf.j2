@@ -82,8 +82,8 @@ zone "{{ zone.name }}" {
   };
 {% endif %}
 };
-{% if zone.update == "true" %}
-allow-update { key ddnskey; };
+{% if zone.update is sameas true %}
+  allow-update { key ddnskey; };
 {% endif %}
 
 {% endfor %}
