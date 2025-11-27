@@ -70,6 +70,7 @@ zone "{{ zone.name }}" {
 {% if zone.update is sameas true %}
   allow-update { key ddnskey; };
 {% else %}
+test
 {% endif %}
 {% if zone.type == "forward" %}
   forwarders {
