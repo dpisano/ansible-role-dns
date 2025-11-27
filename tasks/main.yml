@@ -98,7 +98,7 @@
 
 - name: debug
   ansible.builtin.debug:
-    msg: "{{ item.update }}"
+    msg: output {{ item.update }}
   loop: "{{ dns_zones }}"
   when: item.update is defined
 
