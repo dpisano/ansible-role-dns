@@ -96,6 +96,11 @@
   notify:
     - Rndc reload
 
+- name: debug
+  ansible.builtin.debug:
+    msg: "{{ item.update }}"
+  loop: "{{ dns_zones }}"
+
 - name: Add zones to configuration
   ansible.builtin.template:
     src: named.conf.j2
